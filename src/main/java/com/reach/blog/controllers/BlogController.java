@@ -34,7 +34,8 @@ public class BlogController {
 
     @GetMapping("/blogs")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<?> getBlogs(@RequestParam(name = "include", required = false) String include) {
+    public ResponseEntity<?> getBlogs(@RequestParam(name = "include", required = false) String include,
+            @RequestParam(name = "search", required = false) String query) {
         List<?> blogs;
 
         if ("categories".equals(include)) {
@@ -42,7 +43,11 @@ public class BlogController {
         } else if ("comments".equals(include)) {
             blogs = blogService.findAllWithComment();
         } else {
-            blogs = blogService.findAll();
+            if (query != null && !query.isEmpty()) {
+                blogs = blogService.findAllWithQuery(query);
+            } else {
+                blogs = blogService.findAll();
+            }
         }
 
         return ResponseEntity.ok(blogs);

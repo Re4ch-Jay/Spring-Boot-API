@@ -10,6 +10,8 @@ import com.reach.blog.dto.BlogWithCommentDTO;
 public interface BlogService {
     List<BlogDTO> findAll();
 
+    List<BlogDTO> findAllWithQuery(String query);
+
     List<BlogWithCategoryDTO> findAllWithCategory();
 
     List<BlogWithCommentDTO> findAllWithComment();

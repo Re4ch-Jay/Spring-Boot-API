@@ -43,6 +43,15 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public List<BlogDTO> findAllWithQuery(String query) {
+        List<Blog> blogs = blogRepository.findByTitleLike(query);
+
+        List<BlogDTO> blogList = blogs.stream().map(b -> mapper.mapToDTO(b)).toList();
+
+        return blogList;
+    }
+
+    @Override
     public List<BlogWithCategoryDTO> findAllWithCategory() {
         List<Blog> blogs = blogRepository.findAll();
 
@@ -117,5 +126,4 @@ public class BlogServiceImpl implements BlogService {
         Blog blog = blogRepository.findById(id).orElseThrow(() -> new NotFoundException("Blog could not be found"));
         blogRepository.delete(blog);
     }
-
 }
