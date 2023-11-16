@@ -11,3 +11,29 @@
 ##### Blog Category API Endpoints
 
 ![Alt text](assets/category.png)
+
+##### Features
+
+- Authentication and Authorization with Spring Security
+- Blog Service
+- Category Service
+- Comment Service
+- Search & Query
+- Eager Load & Lazy Load
+- Each Service Include there own Crud functionality
+
+##### Frameworks
+
+- Spring Boot
+- Spring Data JPA
+- Spring Security
+- Postgresql
+- JWT
+- Spring Doc
+- Spring Validation
+- Lombok
+
+##### Patterns
+
+- Dependency Injection
+- DTO
