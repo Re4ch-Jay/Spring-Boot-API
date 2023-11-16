@@ -21,6 +21,8 @@ import com.reach.blog.dto.BlogDTO;
 import com.reach.blog.response.ApiResponse;
 import com.reach.blog.services.BlogService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api")
 public class BlogController {
@@ -79,7 +81,7 @@ public class BlogController {
 
     @PostMapping("/blogs")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<?> createBlog(@RequestBody BlogCreateDTO blogDTO) {
+    public ResponseEntity<?> createBlog(@Valid @RequestBody BlogCreateDTO blogDTO) {
 
         blogService.create(blogDTO);
 
@@ -89,7 +91,7 @@ public class BlogController {
     @PutMapping("/blogs/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<?> updateBlog(@PathVariable(name = "id") Long id,
-            @RequestBody(required = true) BlogDTO blogDTO) {
+            @Valid @RequestBody BlogDTO blogDTO) {
 
         BlogDTO updateBlog = blogService.update(id, blogDTO);
 

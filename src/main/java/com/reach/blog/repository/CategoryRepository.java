@@ -8,4 +8,5 @@ import com.reach.blog.models.Category;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {
     List<Category> findByBlogId(Long categoryId);
+    Category findByName(String name);   
 }

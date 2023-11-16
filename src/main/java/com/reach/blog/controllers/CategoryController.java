@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.reach.blog.dto.CategoryDTO;
 import com.reach.blog.services.CategoryService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api")
 public class CategoryController {
@@ -38,13 +40,13 @@ public class CategoryController {
     }
 
     @PostMapping("/categories")
-    public ResponseEntity<CategoryDTO> createComment(@RequestBody CategoryDTO CategoryDTO) {
+    public ResponseEntity<CategoryDTO> createComment(@Valid @RequestBody CategoryDTO CategoryDTO) {
         return ResponseEntity.ok(categoryService.create(CategoryDTO));
     }
 
     @PutMapping("/categories/{categoryId}")
     public ResponseEntity<CategoryDTO> updateComment(@PathVariable(name = "categoryId") Long categoryId,
-            @RequestBody CategoryDTO CategoryDTO) {
+            @Valid @RequestBody CategoryDTO CategoryDTO) {
         return ResponseEntity.ok(categoryService.update(categoryId, CategoryDTO));
     }
 

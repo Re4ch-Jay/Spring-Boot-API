@@ -2,15 +2,15 @@ package com.reach.blog.dto;
 
 import java.util.Date;
 
-import lombok.AllArgsConstructor;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class CommentDTO {
     private Long id;
+    @NotNull
+    @NotEmpty
     private String message;
     private Date createdAt;
     private Date updatedAt;
