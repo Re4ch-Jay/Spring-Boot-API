@@ -2,7 +2,7 @@
 
 ##### Blog API Endpoints
 
-![Alt text](assets/blog.png)
+![Alt text](assets/blog.PNG)
 
 ##### Blog Comment API Endpoints
 
@@ -10,7 +10,7 @@
 
 ##### Blog Category API Endpoints
 
-![Alt text](assets/category.png)
+![Alt text](assets/category.PNG)
 
 ##### Features
 
