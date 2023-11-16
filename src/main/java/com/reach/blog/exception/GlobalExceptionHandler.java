@@ -19,4 +19,14 @@ public class GlobalExceptionHandler {
         errorResponse.setTimestamp(new Date());
         return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler(UserAlreadyExistHandler.class)
+    public ResponseEntity<ErrorResponse> handleUserAlreadyExisit(Exception exception) {
+        ErrorResponse errorResponse = new ErrorResponse();
+        errorResponse.setStatusCode(HttpStatus.BAD_REQUEST.value());
+        errorResponse.setMessage("The provided credential is already existed");
+        errorResponse.setTimestamp(new Date());
+        return new ResponseEntity<ErrorResponse>(errorResponse, HttpStatus.BAD_REQUEST);
+    }
+
 }
